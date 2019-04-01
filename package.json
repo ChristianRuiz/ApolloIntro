@@ -1,0 +1,40 @@
+{
+  "name": "countries",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@material-ui/core": "3.9.3",
+    "@material-ui/icons": "3.0.2",
+    "apollo-boost": "0.3.1",
+    "graphql": "14.2.1",
+    "prop-types": "15.7.2",
+    "react": "16.8.6",
+    "react-apollo": "2.5.3",
+    "react-dom": "16.8.6",
+    "react-router-dom": "5.0.0",
+    "react-scripts": "2.1.8",
+    "typeface-roboto": "0.0.54"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ],
+  "devDependencies": {
+    "babel-eslint": "9.0.0",
+    "eslint": "^5.12.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-config-prettier": "^4.1.0",
+    "eslint-plugin-prettier": "^3.0.1",
+    "eslint-plugin-react": "^7.12.4",
+    "eslint-plugin-react-hooks": "^1.6.0",
+    "prettier": "^1.16.4"
+  }
+}

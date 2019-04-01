@@ -1,0 +1,31 @@
+.countries-list {
+  padding: 20px;
+  width: 350px;
+  height: calc(100vh - 40px);
+  overflow-y: auto;
+}
+.countries-list a {
+  text-decoration: none;
+}
+
+.country-card {
+  padding: 20px;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: row;
+}
+
+.country-card img {
+  margin-right: 20px;
+}
+
+.country-card-content {
+  flex: 1;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.country-card svg {
+  margin-top: auto;
+  margin-bottom: auto;
+}

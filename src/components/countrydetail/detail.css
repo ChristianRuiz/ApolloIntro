@@ -1,0 +1,18 @@
+.country-detail {
+  margin: 20px;
+  flex: 1;
+}
+
+.country-detail-card {
+  padding: 20px;
+  display: flex;
+  flex-direction: row;
+}
+
+.country-detail-card-content {
+  flex: 1;
+}
+
+.country-detail-card p {
+  margin-top: 10px;
+}
