@@ -7,38 +7,48 @@ import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 
 import ToggleFavorite from '../common/toggleFavorite';
+import Loading from '../common/loading';
 
 import './list.css';
 
-const List = () => {
+const List = ({ data }) => {
+  const { loading, countries } = data;
+
   return (
     <div className="countries-list">
-      {[
-        { code: 'AR', name: 'Argentina', isFavorite: false },
-        { code: 'CA', name: 'Canada', isFavorite: true },
-        { code: 'ES', name: 'Spain', isFavorite: false }
-      ].map(country => (
-        <Link to={`/contry/${country.code}`} key={country.code}>
-          <Paper className="country-card" elevation={1}>
-            <img src={`http://www.countryflags.io/${country.code}/flat/64.png`} alt={country.code} />
-            <div className="country-card-content">
-              <Typography variant="h5" component="h3">
-                {country.name}
-              </Typography>
-            </div>
-            <ToggleFavorite code={country.code} isFavorite={country.isFavorite} />
-          </Paper>
-        </Link>
-      ))}
+      {loading ? (
+        <Loading />
+      ) : (
+        countries.map(country => (
+          <Link to={`/contry/${country.code}`} key={country.code}>
+            <Paper className="country-card" elevation={1}>
+              <img src={`http://www.countryflags.io/${country.code}/flat/64.png`} alt={country.code} />
+              <div className="country-card-content">
+                <Typography variant="h5" component="h3">
+                  {country.name}
+                </Typography>
+              </div>
+              <ToggleFavorite code={country.code} isFavorite={country.isFavorite} />
+            </Paper>
+          </Link>
+        ))
+      )}
     </div>
   );
 };
 
-// List.propTypes = {
-//   data: propTypes.object.isRequired
-// };
+List.propTypes = {
+  data: propTypes.object.isRequired
+};
 
-// const query = gql`
-// `;
+const query = gql`
+  query GetCountries {
+    countries {
+      name
+      code
+      isFavorite
+    }
+  }
+`;
 
-export default List;
+export default graphql(query)(List);
