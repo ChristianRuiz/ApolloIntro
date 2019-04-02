@@ -7,6 +7,7 @@
     "@material-ui/icons": "3.0.2",
     "apollo-boost": "0.3.1",
     "graphql": "14.2.1",
+    "graphql-tag": "^2.10.1",
     "prop-types": "15.7.2",
     "react": "16.8.6",
     "react-apollo": "2.5.3",
@@ -19,7 +20,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "schema": "node ./node_modules/graphql-cli/dist/bin get-schema --endpoint http://localhost:6060/ --output schema/countries.json"
   },
   "browserslist": [
     ">0.2%",
@@ -32,9 +34,11 @@
     "eslint": "^5.12.0",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-config-prettier": "^4.1.0",
+    "eslint-plugin-graphql": "^3.0.3",
     "eslint-plugin-prettier": "^3.0.1",
     "eslint-plugin-react": "^7.12.4",
     "eslint-plugin-react-hooks": "^1.6.0",
+    "graphql-cli": "^3.0.11",
     "prettier": "^1.16.4"
   }
 }
