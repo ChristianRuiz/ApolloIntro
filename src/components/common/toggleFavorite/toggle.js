@@ -12,22 +12,16 @@ class ToggleFavorite extends Component {
     isFavorite: propTypes.bool.isRequired
   };
 
-  state = {
-    isFavorite: this.props.isFavorite
-  };
-
   handleToggleFavorite = (event, mutate) => {
     event.preventDefault();
 
-    const { isFavorite } = this.state;
-    this.setState({ isFavorite: !isFavorite });
-
     const { code } = this.props;
+
     mutate({ variables: { code } });
   };
 
   render() {
-    const { isFavorite } = this.state;
+    const { isFavorite } = this.props;
 
     return (
       <Fragment>
