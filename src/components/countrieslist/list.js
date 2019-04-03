@@ -13,9 +13,9 @@ import './list.css';
 
 const List = () => (
   <Pagination>
-    {() => (
+    {({ itemsPerPage, page }) => (
       <div className="countries-list">
-        <GetCountriesQuery>
+        <GetCountriesQuery first={itemsPerPage} offset={(page - 1) * itemsPerPage}>
           {({ data, loading, refetch }) => (
             <Fragment>
               <div className="countries-list-refresh">
