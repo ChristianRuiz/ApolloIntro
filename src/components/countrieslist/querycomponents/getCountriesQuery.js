@@ -15,7 +15,9 @@ export const QUERY = gql`
 `;
 
 const GetCountriesQuery = ({ children }) => (
-  <Query query={QUERY}>{({ loading, error, data, refetch }) => children({ loading, error, data, refetch })}</Query>
+  <Query query={QUERY} fetchPolicy="cache-and-network">
+    {({ loading, error, data, refetch }) => children({ loading, error, data, refetch })}
+  </Query>
 );
 
 GetCountriesQuery.propTypes = {
