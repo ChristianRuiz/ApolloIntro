@@ -6,6 +6,7 @@ import PropTypes from 'prop-types';
 export const QUERY = gql`
   query GetCountries {
     countries {
+      id: code
       name
       code
       isFavorite

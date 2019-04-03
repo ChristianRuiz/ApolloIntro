@@ -6,6 +6,7 @@ import PropTypes from 'prop-types';
 export const QUERY = gql`
   query GetContryByCode($code: String) {
     country(code: $code) {
+      id: code
       code
       name
       isFavorite

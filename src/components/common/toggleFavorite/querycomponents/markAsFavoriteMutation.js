@@ -6,6 +6,7 @@ import PropTypes from 'prop-types';
 export const MUTATION = gql`
   mutation MarkAsFavorite($code: String) {
     markAsFavorite(code: $code) {
+      id: code
       code
       isFavorite
     }
