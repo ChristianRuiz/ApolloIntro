@@ -13,7 +13,7 @@ export const MUTATION = gql`
   }
 `;
 
-const LoginMutation = ({ children, code }) => (
+const UnmarkAsFavoriteMutation = ({ children, code }) => (
   <Mutation
     mutation={MUTATION}
     variables={{ code }}
@@ -23,9 +23,9 @@ const LoginMutation = ({ children, code }) => (
   </Mutation>
 );
 
-LoginMutation.propTypes = {
+UnmarkAsFavoriteMutation.propTypes = {
   children: PropTypes.func.isRequired,
   code: PropTypes.string.isRequired
 };
 
-export default LoginMutation;
+export default UnmarkAsFavoriteMutation;
