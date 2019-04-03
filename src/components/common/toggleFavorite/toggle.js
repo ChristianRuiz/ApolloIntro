@@ -6,24 +6,24 @@ import StarBorder from '@material-ui/icons/StarBorder';
 import MarkAsFavoriteMutation from './querycomponents/markAsFavoriteMutation';
 import UnmarkAsFavoriteMutation from './querycomponents/unmarkAsFavoriteMutation';
 
-const handleToggleFavorite = (event, mutate, code) => {
+const handleToggleFavorite = (event, mutate) => {
   event.preventDefault();
 
-  mutate({ variables: { code } });
+  mutate();
 };
 
 const ToggleFavorite = ({ code, isFavorite }) => (
   <Fragment>
     {isFavorite ? (
-      <UnmarkAsFavoriteMutation>
+      <UnmarkAsFavoriteMutation code={code}>
         {({ mutate }) => (
-          <Star color="secondary" fontSize="large" onClick={event => handleToggleFavorite(event, mutate, code)} />
+          <Star color="secondary" fontSize="large" onClick={event => handleToggleFavorite(event, mutate)} />
         )}
       </UnmarkAsFavoriteMutation>
     ) : (
-      <MarkAsFavoriteMutation>
+      <MarkAsFavoriteMutation code={code}>
         {({ mutate }) => (
-          <StarBorder color="secondary" fontSize="large" onClick={event => handleToggleFavorite(event, mutate, code)} />
+          <StarBorder color="secondary" fontSize="large" onClick={event => handleToggleFavorite(event, mutate)} />
         )}
       </MarkAsFavoriteMutation>
     )}

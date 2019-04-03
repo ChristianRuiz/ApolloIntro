@@ -42,7 +42,9 @@ const Detail = ({ match }) => {
                   </Typography>
                   <ul>
                     {country.languages.map(language => (
-                      <Typography component="li">{language.name}</Typography>
+                      <Typography component="li" key={language.name}>
+                        {language.name}
+                      </Typography>
                     ))}
                   </ul>
                 </div>
