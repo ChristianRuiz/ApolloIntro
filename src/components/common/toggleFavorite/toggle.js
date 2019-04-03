@@ -3,8 +3,8 @@ import propTypes from 'prop-types';
 import Star from '@material-ui/icons/Star';
 import StarBorder from '@material-ui/icons/StarBorder';
 
-import MarkAsFavoriteMutation from './querycomponents/markAsFavoriteMutation';
-import UnmarkAsFavoriteMutation from './querycomponents/unmarkAsFavoriteMutation';
+import useMarkAsFavoriteMutation from './querycomponents/useMarkAsFavoriteMutation';
+import useUnmarkAsFavoriteMutation from './querycomponents/useUnmarkAsFavoriteMutation';
 
 const handleToggleFavorite = (event, mutate) => {
   event.preventDefault();
@@ -12,23 +12,27 @@ const handleToggleFavorite = (event, mutate) => {
   mutate();
 };
 
-const ToggleFavorite = ({ code, isFavorite }) => (
-  <Fragment>
-    {isFavorite ? (
-      <UnmarkAsFavoriteMutation code={code}>
-        {({ mutate }) => (
-          <Star color="secondary" fontSize="large" onClick={event => handleToggleFavorite(event, mutate)} />
-        )}
-      </UnmarkAsFavoriteMutation>
-    ) : (
-      <MarkAsFavoriteMutation code={code}>
-        {({ mutate }) => (
-          <StarBorder color="secondary" fontSize="large" onClick={event => handleToggleFavorite(event, mutate)} />
-        )}
-      </MarkAsFavoriteMutation>
-    )}
-  </Fragment>
-);
+const ToggleFavorite = ({ code, isFavorite }) => {
+  const mutateMarkAsFavorite = useMarkAsFavoriteMutation(code);
+  const mutateUnmarkAsFavorite = useUnmarkAsFavoriteMutation(code);
+  return (
+    <Fragment>
+      {isFavorite ? (
+        <Star
+          color="secondary"
+          fontSize="large"
+          onClick={event => handleToggleFavorite(event, mutateUnmarkAsFavorite)}
+        />
+      ) : (
+        <StarBorder
+          color="secondary"
+          fontSize="large"
+          onClick={event => handleToggleFavorite(event, mutateMarkAsFavorite)}
+        />
+      )}
+    </Fragment>
+  );
+};
 
 ToggleFavorite.propTypes = {
   code: propTypes.string.isRequired,
