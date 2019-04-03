@@ -14,7 +14,11 @@ export const MUTATION = gql`
 `;
 
 const LoginMutation = ({ children, code }) => (
-  <Mutation mutation={MUTATION} variables={{ code }}>
+  <Mutation
+    mutation={MUTATION}
+    variables={{ code }}
+    optimisticResponse={{ markAsFavorite: { id: code, code, isFavorite: true, __typename: 'Country' } }}
+  >
     {(mutate, { loading, error, data }) => children({ mutate, loading, error, data })}
   </Mutation>
 );
