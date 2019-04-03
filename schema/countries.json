@@ -56,7 +56,28 @@
             {
               "name": "countries",
               "description": "",
-              "args": [],
+              "args": [
+                {
+                  "name": "offset",
+                  "description": "",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Int",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "first",
+                  "description": "",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Int",
+                    "ofType": null
+                  },
+                  "defaultValue": null
+                }
+              ],
               "type": {
                 "kind": "LIST",
                 "name": null,
@@ -1427,7 +1448,7 @@
   "extensions": {
     "graphql-config": {
       "source": "http://localhost:6060/",
-      "timestamp": "Tue Apr 02 2019 13:09:49 GMT+0200 (Romance Summer Time)"
+      "timestamp": "Wed Apr 03 2019 16:08:18 GMT+0200 (Romance Summer Time)"
     }
   }
 }
