@@ -4,6 +4,7 @@
   height: calc(100vh - 40px);
   overflow-y: auto;
 }
+
 .countries-list a {
   text-decoration: none;
 }
@@ -28,4 +29,10 @@
 .country-card svg {
   margin-top: auto;
   margin-bottom: auto;
+}
+
+.countries-list-refresh {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
 }
