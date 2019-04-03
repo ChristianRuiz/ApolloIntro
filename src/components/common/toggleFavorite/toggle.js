@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+import React, { Fragment } from 'react';
 import propTypes from 'prop-types';
 import Star from '@material-ui/icons/Star';
 import StarBorder from '@material-ui/icons/StarBorder';
@@ -6,45 +6,33 @@ import StarBorder from '@material-ui/icons/StarBorder';
 import MarkAsFavoriteMutation from './querycomponents/markAsFavoriteMutation';
 import UnmarkAsFavoriteMutation from './querycomponents/unmarkAsFavoriteMutation';
 
-class ToggleFavorite extends Component {
-  static propTypes = {
-    code: propTypes.string.isRequired,
-    isFavorite: propTypes.bool.isRequired
-  };
+const handleToggleFavorite = (event, mutate, code) => {
+  event.preventDefault();
 
-  handleToggleFavorite = (event, mutate) => {
-    event.preventDefault();
+  mutate({ variables: { code } });
+};
 
-    const { code } = this.props;
-
-    mutate({ variables: { code } });
-  };
-
-  render() {
-    const { isFavorite } = this.props;
-
-    return (
-      <Fragment>
-        {isFavorite ? (
-          <UnmarkAsFavoriteMutation>
-            {({ mutate }) => (
-              <Star color="secondary" fontSize="large" onClick={event => this.handleToggleFavorite(event, mutate)} />
-            )}
-          </UnmarkAsFavoriteMutation>
-        ) : (
-          <MarkAsFavoriteMutation>
-            {({ mutate }) => (
-              <StarBorder
-                color="secondary"
-                fontSize="large"
-                onClick={event => this.handleToggleFavorite(event, mutate)}
-              />
-            )}
-          </MarkAsFavoriteMutation>
+const ToggleFavorite = ({ code, isFavorite }) => (
+  <Fragment>
+    {isFavorite ? (
+      <UnmarkAsFavoriteMutation>
+        {({ mutate }) => (
+          <Star color="secondary" fontSize="large" onClick={event => handleToggleFavorite(event, mutate, code)} />
         )}
-      </Fragment>
-    );
-  }
-}
+      </UnmarkAsFavoriteMutation>
+    ) : (
+      <MarkAsFavoriteMutation>
+        {({ mutate }) => (
+          <StarBorder color="secondary" fontSize="large" onClick={event => handleToggleFavorite(event, mutate, code)} />
+        )}
+      </MarkAsFavoriteMutation>
+    )}
+  </Fragment>
+);
+
+ToggleFavorite.propTypes = {
+  code: propTypes.string.isRequired,
+  isFavorite: propTypes.bool.isRequired
+};
 
 export default ToggleFavorite;
