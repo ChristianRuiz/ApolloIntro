@@ -1,6 +1,6 @@
 This project is the demo used in the [Introducción a Apollo Meetup](https://www.meetup.com/js-coders/events/260047567/)
 
-[Slides][https://github.com/christianruiz/apollointro/blob/master/slides/apollointro.pdf]
+[Slides](/slides/apollointro.pdf)
 
 ## GraphQL
 
